@@ -22,11 +22,9 @@ doingOnSearch();
 // call api
 function apiCall(value) {
   const link = `https://api.lyrics.ovh/suggest/${value}`
-  // const link = './hello.json'
   fetch(link)
     .then(response => response.json())
     .then(json => {
-      // console.log(json.data);
       const data = json.data;
       for (let i = 0; i < 10; i++) {
         const singleData = data[i];
@@ -49,7 +47,7 @@ function makeList(songName, artistName, id) {
                               <p class="author lead">Album by <span>${artistName}</span></p>
                           </div>
                           <div class="col-md-3 text-md-right text-center">
-                              <button class="btn btn-success" onClick='getLyrics("${artistName}", "${songName}", "${id}")'>Get Lyrics</button>
+                              <button class="btn btn-success" onClick="getLyrics('${artistName}', '${songName}', '${id}')">Get Lyrics</button>
                               
                           </div>
                           <div id="${id}" class="single-lyrics mx-auto text-center">
